@@ -1,50 +1,133 @@
-# React + TypeScript + Vite
+# Nexus Ventures - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The frontend application for the Nexus Ventures video learning platform, built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- User Authentication
+  - Login/Register functionality
+  - JWT token management
+  - Protected routes
 
-## Expanding the ESLint configuration
+- Video Management
+  - Video grid display
+  - Video player
+  - Video details view
+  - Video search and filtering
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- User Features
+  - Referral ID system
+  - User profile management
+  - Video history tracking
 
-- Configure the top-level `parserOptions` property like this:
+- Modern UI/UX
+  - Responsive design
+  - Tailwind CSS styling
+  - Loading states
+  - Error handling
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Tech Stack
+
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- Axios
+- React Router DOM
+
+## Project Structure
+
+```
+src/
+├── components/        # Reusable UI components
+├── services/         # API integration
+├── hooks/            # Custom React hooks
+├── utils/            # Helper functions
+├── types/            # TypeScript definitions
+└── assets/          # Static assets
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Getting Started
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+1. Install dependencies:
+```bash
+npm install
 ```
+
+2. Set up environment variables:
+Create a `.env` file in the root directory:
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Build for production:
+```bash
+npm run build
+```
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build
+
+## Component Documentation
+
+### VideoGrid
+The main video display component that shows a grid of available videos.
+```typescript
+interface Video {
+  id: number;
+  title: string;
+  thumbnail: string;
+  author: string;
+  duration: string;
+}
+```
+
+### PaymentGateway
+Handles payment processing with multiple payment methods.
+- Credit/Debit Card
+- UPI
+- Wallets
+- Net Banking
+
+## API Integration
+
+The `services/api.ts` file contains all API integration code:
+
+```typescript
+// Auth APIs
+authAPI.register(userData)
+authAPI.login(credentials)
+authAPI.getCurrentUser()
+authAPI.updateReferralId(referralId)
+
+// Video APIs
+videoAPI.getAllVideos()
+videoAPI.getVideoById(id)
+videoAPI.getUserVideos()
+videoAPI.uploadVideo(formData)
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## ESLint Configuration
+
+The project uses ESLint with TypeScript support. Configuration can be found in `eslint.config.js`.
+
+## License
+
+This project is licensed under the MIT License.

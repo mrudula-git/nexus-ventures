@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 interface Receiver {
   name: string;
   email: string;

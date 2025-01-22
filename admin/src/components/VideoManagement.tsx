@@ -46,6 +46,7 @@ const VideoManagement = () => {
   };
 
   return (
+    <>
     <div className="p-6">
       {/* Dashboard Header and Graph */}
       <div className="mb-12">
@@ -149,6 +150,7 @@ const VideoManagement = () => {
         video={selectedVideo}
       />
     </div>
+    </>
   );
 };
 

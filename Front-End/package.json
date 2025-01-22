@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
+    "@types/axios": "^0.9.36",
+    "axios": "^1.7.9",
     "front-end": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
